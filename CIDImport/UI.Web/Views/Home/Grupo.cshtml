@@ -1,0 +1,57 @@
+﻿@using Repositorio
+@model List<ViewModelCategoria>
+@{
+    ViewBag.Title = "Categorias";
+}
+
+<h2>Busca CID</h2>
+<div class="span12" style="margin-left: 0">
+    <div class="span3">
+        <div class="input-append">
+            <input class="span9" id="appendedInputButton" type="text">
+            <button class="btn" type="button">Go!</button>
+        </div>
+    </div>
+    <div class="span9">
+    </div>
+    <div class="span9">
+        <div class="row">
+            @{
+                var capitulo = (ViewModelCapitulo)ViewBag.capitulo;
+                var titulo = capitulo.Descricao.Split('-');
+                titulo[0] = titulo[0].Trim();
+                titulo[1] = titulo[1].Trim();
+
+                var grupo = (ViewModelGrupo)ViewBag.grupo;
+            }
+            <h1>@titulo[0]</h1>
+            <p>@titulo[1]</p>
+
+            <h2>Grupo entre @grupo.CategoriaInicial e @grupo.CategoriaFinal</h2>
+            <p>@grupo.Descricao</p>
+        </div>
+        <div class="row">
+
+            <div class="span9" style="margin-left: 0; height: 110px; padding: 5px;">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var categoria in Model)
+                            {
+                                <tr>
+                                    <td>@categoria.CodigoDaCategoria</td>
+                                    <td><a href="~/Home/Categoria/?codigoDaCategoria=@categoria.CodigoDaCategoria"> @categoria.Descricao</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+            </div>
+
+        </div>
+    </div>
+</div>

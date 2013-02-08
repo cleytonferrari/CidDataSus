@@ -1,0 +1,28 @@
+﻿@model List<Repositorio.ViewModelCapitulo>
+@{
+    ViewBag.Title = "W7SAUDE";
+}
+<h2>Busca CID</h2>
+<div class="span12" style="margin-left: 0">
+    <div class="span3">
+        <div class="input-append">
+            <input class="span9" id="appendedInputButton" type="text">
+            <button class="btn" type="button">Go!</button>
+        </div>
+    </div>
+    <div class="span9">
+        @foreach (var capitulo in Model)
+        {
+            <div class="span6" style="margin-left: 0; height: 110px; padding: 5px;">
+                @{
+            var titulo = capitulo.Descricao.Split('-');
+            titulo[0] = titulo[0].Trim();
+            titulo[1] = titulo[1].Trim();
+                }
+                <h2><a href="~/Home/Capitulo/@capitulo.NumeroCapitulo">@titulo[0]</a></h2>
+                <p>@titulo[1]</p>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+﻿@using Repositorio
+@model List<ViewModelGrupo>
+@{
+    ViewBag.Title = "Capitulo";
+}
+
+<h2>Busca CID</h2>
+<div class="span12" style="margin-left: 0">
+    <div class="span3">
+        <div class="input-append">
+            <input class="span9" id="appendedInputButton" type="text">
+            <button class="btn" type="button">Go!</button>
+        </div>
+    </div>
+    <div class="span9">
+    </div>
+    <div class="span9">
+        <div class="row">
+            @{
+                var capitulo = (ViewModelCapitulo) ViewBag.capitulo;
+                var titulo = capitulo.Descricao.Split('-');
+                titulo[0] = titulo[0].Trim();
+                titulo[1] = titulo[1].Trim();
+            }
+            <h1>@titulo[0]</h1>
+            <p>@titulo[1]</p>
+            <p>Grupos entre @capitulo.CategoriaInicial e @capitulo.CategoriaFinal</p>
+        </div>
+        <div class="row">
+            @foreach (var grupo in Model)
+            {
+                <div class="span6" style="margin-left: 0; height: 110px; padding: 5px;">
+                    <h2><a href="~/Home/Grupo/?categoriaInicial=@grupo.CategoriaInicial&categoriaFinal=@grupo.CategoriaFinal">Grupo entre @grupo.CategoriaInicial e @grupo.CategoriaFinal</a></h2>
+                    <p>@grupo.Descricao</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>

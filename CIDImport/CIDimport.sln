@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIDimport", "CIDimport\CIDimport.csproj", "{85C166B4-A198-4774-A9C6-74BF2AD251B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositorio", "Repositorio\Repositorio.csproj", "{06EF0ACB-6950-4733-B0F7-7D923E368F11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Web", "UI.Web\UI.Web.csproj", "{C57C031D-1799-4293-BD0D-60E744B8F0C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85C166B4-A198-4774-A9C6-74BF2AD251B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C166B4-A198-4774-A9C6-74BF2AD251B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C166B4-A198-4774-A9C6-74BF2AD251B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C166B4-A198-4774-A9C6-74BF2AD251B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06EF0ACB-6950-4733-B0F7-7D923E368F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06EF0ACB-6950-4733-B0F7-7D923E368F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06EF0ACB-6950-4733-B0F7-7D923E368F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06EF0ACB-6950-4733-B0F7-7D923E368F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57C031D-1799-4293-BD0D-60E744B8F0C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57C031D-1799-4293-BD0D-60E744B8F0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57C031D-1799-4293-BD0D-60E744B8F0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57C031D-1799-4293-BD0D-60E744B8F0C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
