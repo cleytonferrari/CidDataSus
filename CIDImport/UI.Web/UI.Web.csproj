@@ -229,6 +229,8 @@
     <Content Include="Views\Home\Grupo.cshtml" />
     <Content Include="Views\Home\Categoria.cshtml" />
     <Content Include="Views\Home\Detalhe.cshtml" />
+    <Content Include="Views\Home\Busca.cshtml" />
+    <Content Include="Views\Home\_formBusca.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

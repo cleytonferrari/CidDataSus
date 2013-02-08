@@ -6,12 +6,7 @@
 
 <h2>Busca CID</h2>
 <div class="span12" style="margin-left: 0">
-    <div class="span3">
-        <div class="input-append">
-            <input class="span9" id="appendedInputButton" type="text">
-            <button class="btn" type="button">Go!</button>
-        </div>
-    </div>
+    @Html.Partial("_formBusca")
     <div class="span9">
     </div>
     <div class="span9">
@@ -39,19 +34,80 @@
                     <tbody>
                         <tr>
                             <td>Classificação</td>
-                            <td>@Model.Classificacao</td>
+                            <td>
+                                @switch (Model.Classificacao.ToUpper())
+                                {
+                                    case "+":
+                                        {
+                                    @:Classificação por etiologia
+                                            break;
+                                        }
+                                    case "*":
+                                        {
+                                    @:Classificação por manifestação
+                                            break;
+                                        }
+                                    default:
+                                        {
+                                    @:Não tem dupla classificação
+                                            break;
+                                        }
+                                }
+                            </td>
                         </tr>
                         <tr>
                             <td>Restrição de Sexo</td>
-                            <td>@Model.RestricaoDeSexo</td>
+                            <td>
+                                @switch (Model.RestricaoDeSexo.ToUpper())
+                                {
+                                    case "F":
+                                        {
+                                    @:Só pode ser utilizada pra sexo feminino
+                                            break;
+                                        }
+                                    case "M":
+                                        {
+                                    @:Só pode ser utilizada para sexo masculino
+                                            break;
+                                        }
+                                    default:
+                                        {
+                                    @:Pode ser utilizada em qualquer situação
+                                            break;
+                                        }
+                                }
+                            </td>
                         </tr>
                         <tr>
                             <td>Causa Óbito</td>
-                            <td>@Model.CausaObito</td>
+                            <td>
+                                @switch (Model.CausaObito.ToUpper())
+                                {
+
+                                    case "N":
+                                        {
+                                    @:A subcategoria tem pouca probabilidade de causar óbito
+                                            break;
+                                        }
+                                    default:
+                                        {
+                                    @:Não há restrição
+                                            break;
+                                        }
+                                }
+                            </td>
                         </tr>
                         <tr>
                             <td>Referência</td>
-                            <td>@Model.Referencia</td>
+                            <td>
+                                @if (string.IsNullOrEmpty(Model.Referencia))
+                                {
+                                    @: Não há
+                                }else
+                                {
+                                    @Model.Referencia
+                                }
+                            </td>
                         </tr>
                     </tbody>
                 </table>

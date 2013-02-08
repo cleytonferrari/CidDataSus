@@ -1,0 +1,42 @@
+﻿@using Repositorio
+@model List<ViewModelSubCategoria>
+@{
+    ViewBag.Title = "Busca";
+}
+
+<h2>Busca CID</h2>
+<div class="span12" style="margin-left: 0">
+    @Html.Partial("_formBusca")
+    <div class="span9">
+    </div>
+    <div class="span9">
+        <div class="row">
+            <h1>Busca</h1>
+        </div>
+        <div class="row">
+
+            <div class="span9" style="margin-left: 0; height: 110px; padding: 5px;">
+
+                <h3>A busca por '@ViewBag.busca' retornou os seguintes resultados</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Subcategoria</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var subCategoria in Model)
+                        {
+                            <tr>
+                                <td>@subCategoria.CodigoDaSubCategoria</td>
+                                <td><a href="~/Home/Detalhe/?codigo=@subCategoria.CodigoDaSubCategoria">@subCategoria.Descricao</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

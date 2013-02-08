@@ -81,5 +81,13 @@ namespace UI.Web.Controllers
             
             return View(subcategoria);
         }
+
+        public ActionResult Busca (string busca)
+        {
+            var repositorio = new Repositorio.Repositorio();
+            var subCategorias = repositorio.ListarSubCategorias().Where(x => x.Descricao.ToLower().Contains(busca.ToLower())).ToList();
+            ViewBag.busca = busca;
+            return View(subCategorias);
+        }
     }
 }
