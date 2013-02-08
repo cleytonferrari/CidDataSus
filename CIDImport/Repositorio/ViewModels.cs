@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
 using CsvHelper.Configuration;
 
 namespace Repositorio
@@ -128,7 +131,6 @@ namespace Repositorio
             get { return Ferramentas.TrocaLetraPorNumero(CodigoDaCategoria); }
         }
 
-
         //CLASSIF: indica se a situação da subcategoria em relação à classificação cruz/asterisco:
         //em branco: não tem dupla classificação;
         //+: classificação por etiologia; e
@@ -153,6 +155,13 @@ namespace Repositorio
         //DESCRICAO: descrição (nome) da subcategoria;
         [CsvField(Name = "DESCRICAO")]
         public string Descricao { get; set; }
+
+        [CsvField(Ignore = true)]
+        public string DescricaoSemAcentos
+        {
+            get { return Ferramentas.SubstituiAcentos(Descricao); }
+        }
+
 
         //DESCRABREV: descrição (nome) abreviado da subcategoria, com até 50 caracteres (inclui o código da subcategoria);
         [CsvField(Name = "DESCRABREV")]
@@ -207,11 +216,20 @@ namespace Repositorio
     {
         public static int TrocaLetraPorNumero(string texto)
         {
-
-            string ascii = ((int)texto[0]).ToString();
-            string resto = texto.Substring(1, texto.Length-1);
-            string valor = ascii + resto;
+            var ascii = ((int)texto[0]).ToString();
+            var resto = texto.Substring(1, texto.Length-1);
+            var valor = ascii + resto;
             return int.Parse(valor);
+        }
+
+        public static string SubstituiAcentos(string s)
+        {
+            var str = s.Normalize(NormalizationForm.FormD);
+            var builder = new StringBuilder();
+            foreach (var ch in str.Where(ch => CharUnicodeInfo.GetUnicodeCategory(ch) != UnicodeCategory.NonSpacingMark))
+                builder.Append(ch);
+            
+            return builder.ToString();
         }
     }
 }

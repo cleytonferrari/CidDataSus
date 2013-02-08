@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Repositorio;
 
 namespace UI.Web.Controllers
 {
@@ -84,8 +85,10 @@ namespace UI.Web.Controllers
 
         public ActionResult Busca (string busca)
         {
+
+            busca = Ferramentas.SubstituiAcentos(busca);
             var repositorio = new Repositorio.Repositorio();
-            var subCategorias = repositorio.ListarSubCategorias().Where(x => x.Descricao.ToLower().Contains(busca.ToLower())).ToList();
+            var subCategorias = repositorio.ListarSubCategorias().Where(x => x.DescricaoSemAcentos.ToLower().Contains(busca.ToLower())).ToList();
             ViewBag.busca = busca;
             return View(subCategorias);
         }
